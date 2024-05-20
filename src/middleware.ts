@@ -1,3 +1,5 @@
+import { NextResponse } from 'next/server';
+
 import { auth } from '@/auth';
 
 const AUTH_PAGES = ['/sign-in', '/sign-up'];
@@ -7,12 +9,14 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth;
 
   if (nextUrl.pathname.startsWith('/dashboard') && !isLoggedIn) {
-    return Response.redirect(new URL('/sign-in', nextUrl));
+    return NextResponse.redirect(new URL('/sign-in', nextUrl));
   }
 
   if (AUTH_PAGES.includes(nextUrl.pathname) && isLoggedIn) {
-    return Response.redirect(new URL('/dashboard', nextUrl));
+    return NextResponse.redirect(new URL('/dashboard', nextUrl));
   }
+
+  return NextResponse.next();
 });
 
 export const config = {
