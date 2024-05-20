@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
+import React from 'react';
 
+import ThemeProvider from '@/providers/ThemeProvider';
 import '@/styles/tailwind.css';
 import { cn } from '@/utils/tailwind';
-import {ThemeProvider} from "next-themes";
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -28,9 +29,14 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-      <ThemeProvider>
-        {children}
-      </ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
