@@ -1,34 +1,14 @@
 import {
-  CircleUser,
-  ComputerIcon,
-  Mail,
   Menu,
-  MessageSquare,
-  MoonIcon,
   Package2,
-  PlusCircle,
-  Search,
-  SunIcon,
-  UserPlus,
 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
 import UserDropdown from '@/app/(app)/dashboard/_components/UserDropdown';
-import { signOut } from '@/auth';
 import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+
+
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const Header = () => {

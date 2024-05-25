@@ -2,7 +2,6 @@
 
 import { LayoutIcon, Loader2 } from 'lucide-react';
 import React, { useTransition } from 'react';
-import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 
 import { createProject } from '@/actions/project';
@@ -48,7 +47,9 @@ const NoProject = () => {
             <LayoutIcon className="text-primary" />
           </div>
         </div>
-        <p className="text-md font-bold">You don't have any project yet !</p>
+        <p className="text-md font-bold">
+          You don&apos;t have any project yet !
+        </p>
         <Dialog>
           <DialogTrigger asChild>
             <Button className="mt-4">Add a project</Button>

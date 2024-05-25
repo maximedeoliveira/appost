@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 const UserDropdown = () => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   return (
     <DropdownMenu>

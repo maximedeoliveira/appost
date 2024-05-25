@@ -10,7 +10,7 @@ function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export const createProject = async (data: any) => {
+export const createProject = async (data: { name: string }) => {
   console.log('Creating project', data);
   await delay(4000);
 
