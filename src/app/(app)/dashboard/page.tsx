@@ -1,19 +1,19 @@
-import {signOut} from "@/auth";
+import { signOut } from '@/auth';
 
 const DashboardPage = () => {
   return (
     <div>
       Dashboard Page
       <form
-        action={async (formData) => {
-          "use server"
-          await signOut()
+        action={async () => {
+          'use server';
+          await signOut();
         }}
       >
         <button type="submit">Sign out</button>
       </form>
     </div>
   );
-}
+};
 
-export default DashboardPage
+export default DashboardPage;
