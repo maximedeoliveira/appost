@@ -1,8 +1,9 @@
-import { and, eq } from 'drizzle-orm';
+import React, { Suspense } from 'react';
 
-import { auth } from '@/auth';
-import { db } from '@/db';
-import { projects } from '@/db/schema';
+import BuildHeaderLoading from '@/components/dashboard/Build/BuidlHeaderLoading';
+import BuildHeader from '@/components/dashboard/Build/BuildHeader';
+import BuildList from '@/components/dashboard/Build/BuildList';
+import BuildListLoading from '@/components/dashboard/Build/BuildListLoading';
 
 type ProjectPageProps = {
   params: {
@@ -10,27 +11,15 @@ type ProjectPageProps = {
   };
 };
 
-const getProjectById = async ({ projectId }: { projectId: string }) => {
-  const session = await auth();
-
-  if (!session?.user?.id) {
-    throw new Error('Unauthorized');
-  }
-
-  return db.query.projects.findFirst({
-    where: and(
-      eq(projects.userId, session.user.id),
-      eq(projects.id, projectId)
-    ),
-  });
-};
-
-const ProjectPage = async ({ params: { projectId } }: ProjectPageProps) => {
-  const project = await getProjectById({ projectId });
-
+const ProjectPage = ({ params: { projectId } }: ProjectPageProps) => {
   return (
-    <div>
-      <pre>{JSON.stringify(project)}</pre>
+    <div className="flex flex-col gap-8">
+      <Suspense fallback={<BuildHeaderLoading />}>
+        <BuildHeader projectId={projectId} />
+      </Suspense>
+      <Suspense fallback={<BuildListLoading />}>
+        <BuildList projectId={projectId} />
+      </Suspense>
     </div>
   );
 };

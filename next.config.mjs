@@ -6,6 +6,15 @@ const jiti = createJiti(fileURLToPath(import.meta.url));
 jiti("./src/env");
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+    ],
+  },
+};
 
 export default nextConfig;

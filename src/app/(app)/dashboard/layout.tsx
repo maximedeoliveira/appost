@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 
-import Header from '@/app/(app)/dashboard/_components/Header';
+import Header from '@/components/dashboard/Header';
 
 type DashboardLayoutProps = PropsWithChildren;
 

@@ -6,14 +6,7 @@ import { auth } from '@/auth';
 import { db } from '@/db';
 import { projects } from '@/db/schema';
 
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export const createProject = async (data: { name: string }) => {
-  console.log('Creating project', data);
-  await delay(4000);
-
   const session = await auth();
 
   if (!session?.user?.id) {

@@ -1,14 +1,9 @@
-import {
-  Menu,
-  Package2,
-} from 'lucide-react';
+import { Menu, Package2 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
-import UserDropdown from '@/app/(app)/dashboard/_components/UserDropdown';
+import UserDropdown from '@/components/dashboard/UserDropdown';
 import { Button } from '@/components/ui/button';
-
-
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const Header = () => {
